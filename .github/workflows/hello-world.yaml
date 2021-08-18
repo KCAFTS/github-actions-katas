@@ -29,7 +29,7 @@ jobs:
       - name: Upload Repo
         uses: actions/upload-artifact@v2
         with:
-          name: code
+          name: code-done
           path: .
   Test:
     needs: [Clone-down]
@@ -51,7 +51,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v2
         with:
-          name: code
+          name: code-done
           path: .
       - run: export GIT_COMMIT="GA-$GITHUB_SHA"
       - run: chmod +x ci/build-docker.sh && ci/build-docker.sh
