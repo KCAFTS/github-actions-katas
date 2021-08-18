@@ -14,7 +14,7 @@ jobs:
       - name: Test
         run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
       - run: chmod +x ci/build-docker.sh 
-      - run: GIT_COMMIT="GA-$GITHUB_SHA" sh ./ci/build-docker.sh
+      - run: GIT_COMMIT="GA-$GITHUB_SHA" ./ci/build-docker.sh
       - run: chmod +x ci/push-docker.sh 
-      - run: GIT_COMMIT="GA-$GITHUB_SHA" sh ./ci/push-docker.sh
+      - run: GIT_COMMIT="GA-$GITHUB_SHA" ./ci/push-docker.sh
       - run: chmod +x ci/component-test.sh && ./ci/component-test.sh
