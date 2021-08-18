@@ -35,7 +35,7 @@ jobs:
       - run: GIT_COMMIT="GA-$GITHUB_SHA" sh ./ci/push-docker.sh
   Component-test:
     needs: [Docker-image]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - run: chmod +x ci/component-test.sh && ./ci/component-test.sh
