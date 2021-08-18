@@ -48,11 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     container: docker:latest
     steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: code-done
-          path: .
+      - uses: actions/checkout@v2
       - run: export GIT_COMMIT="GA-$GITHUB_SHA"
       - run: chmod +x ci/build-docker.sh && ci/build-docker.sh
       - run: chmod +x ci/push-docker.sh && ci/push-docker.sh
